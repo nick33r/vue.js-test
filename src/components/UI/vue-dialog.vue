@@ -1,18 +1,23 @@
 <template>
-  <dev class="dialog" v-if="show">
-    <div class="dialog__content">
+  <div class="dialog" v-if="show" @click.stop="hideDialog">
+    <div @click.stop class="dialog__content">
       <slot></slot>
     </div>
-  </dev>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'vue-input',
+  name: 'vue-dialog',
   props: {
     show: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    hideDialog() {
+      this.$emit('update:show', false)
     }
   }
 }
@@ -31,9 +36,11 @@ export default {
 
   .dialog__content {
     margin: auto;
+    display: flex;
     background-color: white;
     border-radius: 12px;
-    min-height: 50px;
-    min-width: 300px;
+    padding: 20px;
+    min-height: 250px;
+    min-width: 600px;
   }
 </style>

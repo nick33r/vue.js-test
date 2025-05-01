@@ -5,12 +5,11 @@
         placeholder="Новое дело"
         v-model="todo.title"
       />
-      <textarea 
-        name="description" 
-        id="adder-description" 
+      <vue-input 
+        type="text"
         placeholder="Описание дела"
         v-model="todo.body"
-      ></textarea>
+      />
       <VueButton 
         class="adder-btn"
         @click="createTodo"
